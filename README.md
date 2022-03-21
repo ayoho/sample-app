@@ -20,6 +20,7 @@ This is meant to be a bit of a catch-all for developing and exploring the variou
 ## Technologies
 
 - JAX-RS
+- Application security
 
 ## Application overview
 
@@ -29,3 +30,42 @@ This is meant to be a bit of a catch-all for developing and exploring the variou
 
 - `/simple/hello`
 - `/simple/heartbeat`
+
+#### App security
+
+- `/protected/heartbeat`
+
+    Does not require any credentials or authentication.
+
+    **Output:**
+    
+    Current time in milliseconds.
+
+- `/protected/no-roles`
+
+    Does not have a `@RolesAllowed` annotation, so this will always return a 403 regardless of authentication data provided.
+
+- `/protected/echo`
+
+    `@RolesAllowed("Echoer")`
+    
+    **Parameters:**
+
+    - `input`: String used as a prefix in the text output.
+
+    **Output:**
+
+    The value of the `input` parameter plus the name of the authenticated user.
+
+- `/protected/dump`
+
+    `@RolesAllowed("Echoer")`
+
+    **Output:**
+
+    Dump of a bunch of information about the request and authenticated user:
+    
+    - URI info
+    - Request headers
+    - Security context data
+    - Cookies
