@@ -1,10 +1,22 @@
 <server>
     <featureManager>
         <feature>jaxrs-2.1</feature>
+        <feature>jpa-2.2</feature>
     </featureManager>
     
     <httpEndpoint httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint" />
 
     <webApplication location="sample-app.war" contextRoot="/app" />
+
+    <!-- Derby Library Configuration -->
+    <library id="derbyJDBCLib">
+        <fileset dir="${shared.resource.dir}/" includes="derby*.jar" />
+    </library>
+
+    <!-- Datasource Configuration -->
+    <dataSource id="jpadatasource" jndiName="jdbc/jpadatasource">
+        <jdbcDriver libraryRef="derbyJDBCLib" />
+        <properties.derby.embedded databaseName="ApplicationDB" createDatabase="create" />
+    </dataSource>
 
 </server>

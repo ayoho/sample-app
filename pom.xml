@@ -38,6 +38,25 @@
             <version>1.4.60</version>
             <scope>provided</scope>
         </dependency>
+        <!-- For persistence, we'll use a Derby database -->
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>10.15.2.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derbytools</artifactId>
+            <version>10.15.2.0</version>
+            <scope>provided</scope>
+        </dependency>
+		<dependency>
+		    <groupId>org.apache.derby</groupId>
+		    <artifactId>derbyshared</artifactId>
+		    <version>10.15.2.0</version>
+            <scope>provided</scope>
+		</dependency>
         <!-- For testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -100,6 +119,22 @@
                 <artifactId>liberty-maven-plugin</artifactId>
                 <version>3.3.4</version>
                 <configuration>
+                    <!-- Copy in Derby dependencies -->
+                    <copyDependencies>
+                        <location>${project.build.directory}/liberty/wlp/usr/shared/resources</location>
+                        <dependency>
+                            <groupId>org.apache.derby</groupId>
+                            <artifactId>derby</artifactId>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.derby</groupId>
+                            <artifactId>derbytools</artifactId>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.derby</groupId>
+                            <artifactId>derbyshared</artifactId>
+                        </dependency>
+                    </copyDependencies>
                     <stripVersion>true</stripVersion>
                     <serverStartTimeout>120</serverStartTimeout>
                     <bootstrapProperties>
