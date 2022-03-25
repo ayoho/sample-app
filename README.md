@@ -20,6 +20,7 @@ This is meant to be a bit of a catch-all for developing and exploring the variou
 ## Technologies
 
 - JAX-RS
+- JSON Web Tokens (JWT)
 
 ## Application overview
 
@@ -29,3 +30,17 @@ This is meant to be a bit of a catch-all for developing and exploring the variou
 
 - `/simple/hello`
 - `/simple/heartbeat`
+
+#### JWT
+
+- `/jwt`
+
+    `GET`
+
+    `/`
+
+    Returns a JWT built by the default JWT builder.
+
+    `/{builderId}`
+
+    Returns a JWT built by the JWT builder with the corresponding ID in the server configuration.
