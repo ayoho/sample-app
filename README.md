@@ -21,6 +21,7 @@ This is meant to be a bit of a catch-all for developing and exploring the variou
 
 - JAX-RS
 - Application security
+- JPA
 
 ## Application overview
 
@@ -69,3 +70,40 @@ This is meant to be a bit of a catch-all for developing and exploring the variou
     - Request headers
     - Security context data
     - Cookies
+#### JPA
+
+- `/notes`
+
+    `POST`
+
+    Creates a new Note in the database.
+
+    **Parameters:**
+
+    - `text`: Text of the Note to create.
+
+    `GET`
+
+    `/`
+
+    Retrieves all Notes from the database.
+
+    `/{id}`
+
+    Retrieves the Note with the corresponding ID from the database.
+
+    `PUT`
+
+    `/{id}`
+
+    Updates an existing Note.
+
+    **Parameters:**
+
+    - `text`: New text of the Note.
+
+    `DELETE`
+
+    `/{id}`
+
+    Deletes the Note with the corresponding ID from the database.

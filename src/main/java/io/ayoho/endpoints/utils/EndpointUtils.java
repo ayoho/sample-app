@@ -3,9 +3,12 @@ package io.ayoho.endpoints.utils;
 import java.security.Principal;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 import javax.security.auth.Subject;
 import javax.ws.rs.core.Cookie;
 import javax.ws.rs.core.HttpHeaders;
@@ -18,6 +21,14 @@ import com.ibm.websphere.security.WSSecurityException;
 import com.ibm.websphere.security.auth.WSSubject;
 
 public class EndpointUtils {
+
+    public static JsonObject buildJsonError(String errorMsg) {
+        JsonObjectBuilder jsonError = Json.createObjectBuilder();
+        if (errorMsg != null) {
+            jsonError.add("error", errorMsg);
+        }
+        return jsonError.build();
+    }
 
     public String getRequestDump(UriInfo uriInfo, HttpHeaders headers, SecurityContext sec) {
         String result = "";
