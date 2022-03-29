@@ -3,6 +3,7 @@
         <feature>appSecurity-3.0</feature>
         <feature>jaxrs-2.1</feature>
         <feature>jpa-2.2</feature>
+        <feature>jwt-1.0</feature>
     </featureManager>
     
     <httpEndpoint httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint" />
@@ -26,5 +27,7 @@
         <jdbcDriver libraryRef="derbyJDBCLib" />
         <properties.derby.embedded databaseName="ApplicationDB" createDatabase="create" />
     </dataSource>
+
+    <jwtBuilder id="jwtBuilderHs256" signatureAlgorithm="HS256" sharedKey="this is a sufficiently long secret passphrase" />
 
 </server>

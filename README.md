@@ -22,6 +22,7 @@ This is meant to be a bit of a catch-all for developing and exploring the variou
 - JAX-RS
 - Application security
 - JPA
+- JSON Web Tokens (JWT)
 
 ## Application overview
 
@@ -107,3 +108,17 @@ This is meant to be a bit of a catch-all for developing and exploring the variou
     `/{id}`
 
     Deletes the Note with the corresponding ID from the database.
+
+#### JWT
+
+- `/jwt`
+
+    `GET`
+
+    `/`
+
+    Returns a JWT built by the default JWT builder.
+
+    `/{builderId}`
+
+    Returns a JWT built by the JWT builder with the corresponding ID in the server configuration.
